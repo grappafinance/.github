@@ -27,7 +27,7 @@ We believe that the core values of DeFi are composability and decentralization. 
 
 Grappa is here to be that base layer that meets different needs, and also provide an efficient exchange layer (aggregator) for people to easily exchange options across products.
 
-### Funding
+## Funding
 
 The project is 100% open sourced and publicly funded on [Gitcoin](https://gitcoin.co/grants/7713/grappa-finance).
 
@@ -42,7 +42,7 @@ The base layer is a decentralized derivative token that can be created by differ
 
 We also natively support call spread and put spread that can increase capital efficiency by a lot while being fully collateralized.
 
-For more information, please go to [core repo](https://github.com/antoncoding/grappa).
+For more information, please go to [core repo](https://github.com/grappafinance/core).
 
 #### 2. Exchange Layer
 
