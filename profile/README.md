@@ -21,30 +21,30 @@
 
 ## Introduction
 
-Grappa is a project dedicated to build open, permissionless infrastructure to help bootstrap the DeFi option space.
+Grappa is a project driven to establish an open, permissionless foundation that aims to advance the DeFi options space.
 
-We believe that the core values of DeFi are composability and decentralization. The current DeFi option space is suffering a lot from liquidity segmentation because no one has built a trust-worthy base layer that everyone feels comfortable building on top of.
+We hold the conviction that the key principles of DeFi are composability and decentralization. Presently, the DeFi options realm is facing significant hurdles due to liquidity fragmentation. This is largely because there isn't a reliable base layer that everyone feels secure building upon.
 
-Grappa is here to be that base layer that meets different needs, and also provides an efficient exchange layer (aggregator) for people to easily exchange options across products.
+Grappa strives to become this base layer, answering a variety of needs, while also offering an efficient exchange layer (aggregator). This will enable individuals to exchange options across diverse products with ease.
 
 ## Funding
 
-The project is 100% open sourced and publicly funded on [Gitcoin](https://gitcoin.co/grants/7713/grappa-finance).
+This project is fully open-source and publicly funded via [Gitcoin](https://gitcoin.co/grants/7713/grappa-finance).
 
-## What exactly are we building?
+## What Exactly Are We Building??
 
-Grappa is mainly composed of 2 parts:
+### 1. The `Grappa` Contract
 
-#### 1. Core: Decentralized margin & settlement layer for options and spreads
+At the core of our project is a permissionless contract that's designed to settle any instrument with a predefined expiry and a fixed value determined at that expiry. This encompasses instruments akin to cash-settled European call or put options, as well as spreads (e.g., call or put spreads) and even exotic options such as the "up-and-out call option". More about this central contract can be found in our [core-cash](https://github.com/grappafinance/core-cash) repository.
 
-The base layer is a decentralized derivative token that can be created by different **margin engine**. Users with different risk tolerance can choose among different engines based on gas cost, capital efficiency and risk of liquidation.
+Each "instrument" can be minted by different "engines". While these engines share the same settlement logic, the tokens they create are non-fungible, and their risks are entirely separate. Currently, we are in the process of developing three distinct engines that will be connected to the Grappa contract:
+1. [Cross Margin Engine](https://github.com/grappafinance/cross-margin-engine)
+2. [Full collat Engine](https://github.com/grappafinance/full-collat-engine)
+3. [Partial collat engine](https://github.com/grappafinance/partial-collat-engine)
 
-We also natively support call spread and put spread that can increase capital efficiency by a lot while being fully collateralized.
 
-For more information, please go to [core repo](https://github.com/grappafinance/core).
+### 2. The `Pomace` Contract
 
-#### 2. Exchange Layer
+In contrast to the Grappa contract, which settles instruments akin to "cash-settled" options, the Pomace contract is designed to facilitate "physical" settlement of assets. For instance, it handles physically settled options wherein, on the day of expiry, a long holder can exercise their right to swap the assets at a predetermined price, provided they possess an option token. More details about this can be found in our [core-physical](https://github.com/grappafinance/core-physical) repository.
 
-We are building an exchange layer between the same kind of option token created by different margin engines. For example: AMM to exchange between fully collateralized and partially collateralized options.
-
-For more information, please go to [TBA]()
+Following a similar architecture as `Grappa`, we permit various engines to mint "similar" option tokens with identical terms, but with different engines backing the liquidity. Currently, only the [Cross Margin Engine](https://github.com/grappafinance/cross-margin-engine) supports the Pomace contract.
